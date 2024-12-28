@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+	<Description>Extension library for integrating the Authio user validation and management system.</Description>
+	<PackageId>Authio.Security</PackageId>
+	<Authors>Leonardo Almeida</Authors>
+	<Company>Hyper.io</Company>
+	<Version>1.0.0</Version>
+	<PackageVersion>1.0.0</PackageVersion>
+	<RepositoryUrl>https://seu-repositorio.com</RepositoryUrl>
+	<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="9.0.0" />
+    <PackageReference Include="Microsoft.IdentityModel.Protocols" Version="8.3.0" />
+    <PackageReference Include="Microsoft.IdentityModel.Protocols.OpenIdConnect" Version="8.3.0" />
+  </ItemGroup>
+
+</Project>
