@@ -8,18 +8,20 @@
 	<PackageId>Authio.Security</PackageId>
 	<Authors>Leonardo Almeida</Authors>
 	<Company>Hyper.io</Company>
-	<Version>1.0.0</Version>
-	<PackageVersion>1.0.0</PackageVersion>
+	<Version>1.0.1</Version>
+	<PackageVersion>1.0.1</PackageVersion>
 	<RepositoryUrl>https://github.com/LeonardoFerreira1209/AUTHIO.SECURITY</RepositoryUrl>
 	<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 	  
-	<PackageReadmeFile>README.md</PackageReadmeFile>
+	 <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="9.0.0" />
     <PackageReference Include="Microsoft.IdentityModel.Protocols" Version="8.3.0" />
     <PackageReference Include="Microsoft.IdentityModel.Protocols.OpenIdConnect" Version="8.3.0" />
+	  
+	<None Include="README.md" Pack="true" />
   </ItemGroup>
 
 </Project>

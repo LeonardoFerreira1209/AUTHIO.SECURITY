@@ -40,36 +40,22 @@ public class JwksRetriever : IConfigurationRetriever<OpenIdConnectConfiguration>
         CancellationToken cancel
         )
     {
-        if (string.IsNullOrWhiteSpace(address))
-            throw LogHelper
-                .LogArgumentNullException(
-                    "address"
-                );
-
-        if (retriever == null)
-            throw LogHelper
-                .LogArgumentNullException(
-                    "retriever"
-                );
-
         IdentityModelEventSource.ShowPII = true;
 
-        string text =
-            await retriever
-                .GetDocumentAsync(
-                    address,
-                    cancel
-                );
+        OpenIdConnectConfiguration openIdConnectConfiguration = new(
+            await retriever.GetDocumentAsync(
+                address,
+                cancel
+            )
+        );
 
-        JsonWebKeySet jsonWebKeySet
-            = new(text);
-
-        OpenIdConnectConfiguration openIdConnectConfiguration = new()
-        {
-            JsonWebKeySet = jsonWebKeySet,
-            JwksUri = address
-        };
-
+        JsonWebKeySet jsonWebKeySet = new(
+            await retriever.GetDocumentAsync(
+                openIdConnectConfiguration.JwksUri, 
+                cancel
+            )
+        );
+            
         foreach (SecurityKey signingKey
             in jsonWebKeySet.GetSigningKeys()
             )

@@ -6,11 +6,6 @@
 public class JwkOptions
 {
     /// <summary>
-    /// Issuer.
-    /// </summary>
-    public string Issuer { get; set; }
-
-    /// <summary>
     /// Jwks url.
     /// </summary>
     public string JwksUri { get; set; }
@@ -37,19 +32,16 @@ public class JwkOptions
     /// ctor
     /// </summary>
     /// <param name="jwksUri"></param>
-    /// <param name="issuer"></param>
     /// <param name="cacheTime"></param>
     /// <param name="audience"></param>
     public JwkOptions(
         string jwksUri,
-        string issuer = null,
         TimeSpan? cacheTime = null,
         string audience = null
         )
     {
         JwksUri = jwksUri;
         Uri uri = new(jwksUri);
-        Issuer = issuer ?? uri.Scheme + "://" + uri.Authority;
         KeepFor = cacheTime ?? TimeSpan.FromMinutes(15.0);
         Audience = audience;
     }
