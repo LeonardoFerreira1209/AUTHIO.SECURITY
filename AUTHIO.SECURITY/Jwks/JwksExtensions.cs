@@ -40,7 +40,7 @@ public static class JwksExtensions
             options.ConfigurationManager
                 .GetConfigurationAsync(CancellationToken.None).Result;
 
-        bool encrypted = !(configuration.TokenDecryptionKeys.Count > 0);
+        bool encrypted = (configuration.TokenDecryptionKeys.Count > 0);
 
         options.TokenValidationParameters.ValidateAudience = true;
         options.TokenValidationParameters.ValidateIssuer = true;
