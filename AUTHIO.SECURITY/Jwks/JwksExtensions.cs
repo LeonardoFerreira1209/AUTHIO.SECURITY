@@ -48,6 +48,6 @@ public static class JwksExtensions
         options.TokenValidationParameters.ClockSkew = TimeSpan.Zero;
         options.TokenValidationParameters.ValidAudience = jwkOptions.Audience;
         options.TokenValidationParameters.ValidIssuer = configuration.Issuer;
-        options.TokenValidationParameters.RefreshBeforeValidation = !jwkOptions.Encrypted;
+        options.TokenValidationParameters.RequireSignedTokens = !jwkOptions.Encrypted;
     }
 }

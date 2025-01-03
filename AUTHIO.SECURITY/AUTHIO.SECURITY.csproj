@@ -8,8 +8,8 @@
 	<PackageId>Authio.Security</PackageId>
 	<Authors>Leonardo Almeida</Authors>
 	<Company>Hyper.io</Company>
-	<Version>1.0.1</Version>
-	<PackageVersion>1.0.1</PackageVersion>
+	<Version>1.0.3</Version>
+	<PackageVersion>1.0.3</PackageVersion>
 	<RepositoryUrl>https://github.com/LeonardoFerreira1209/AUTHIO.SECURITY</RepositoryUrl>
 	<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
