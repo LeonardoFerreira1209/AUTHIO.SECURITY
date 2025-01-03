@@ -55,7 +55,7 @@ public class JwksRetriever : IConfigurationRetriever<OpenIdConnectConfiguration>
                 cancel
             )
         );
-            
+        
         foreach (SecurityKey signingKey
             in jsonWebKeySet.GetSigningKeys()
             )
@@ -64,6 +64,17 @@ public class JwksRetriever : IConfigurationRetriever<OpenIdConnectConfiguration>
                 .SigningKeys
                     .Add(
                         signingKey
+                    );
+        }
+
+        foreach (SecurityKey key
+            in jsonWebKeySet.Keys
+            )
+        {
+            openIdConnectConfiguration
+                .TokenDecryptionKeys
+                    .Add(
+                        key
                     );
         }
 

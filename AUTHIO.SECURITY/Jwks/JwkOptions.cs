@@ -21,22 +21,21 @@ public class JwkOptions
     public string Audience { get; set; }
 
     /// <summary>
-    /// ctor
+    /// Encrypted token
     /// </summary>
-    public JwkOptions()
-    {
-
-    }
+    public bool Encrypted { get; set; }
 
     /// <summary>
     /// ctor
     /// </summary>
     /// <param name="jwksUri"></param>
     /// <param name="cacheTime"></param>
+    /// <param name="encrypted"></param>
     /// <param name="audience"></param>
     public JwkOptions(
         string jwksUri,
         TimeSpan? cacheTime = null,
+        bool encrypted = false,
         string audience = null
         )
     {
@@ -44,5 +43,6 @@ public class JwkOptions
         Uri uri = new(jwksUri);
         KeepFor = cacheTime ?? TimeSpan.FromMinutes(15.0);
         Audience = audience;
+        Encrypted = encrypted;
     }
 }

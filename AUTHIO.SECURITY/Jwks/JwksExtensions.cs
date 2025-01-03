@@ -40,7 +40,6 @@ public static class JwksExtensions
             options.ConfigurationManager
                 .GetConfigurationAsync(CancellationToken.None).Result;
 
-        options.TokenValidationParameters.ValidateIssuer = 
         options.TokenValidationParameters.ValidateAudience = true;
         options.TokenValidationParameters.ValidateIssuer = true;
         options.TokenValidationParameters.ValidateLifetime = true;
@@ -49,5 +48,6 @@ public static class JwksExtensions
         options.TokenValidationParameters.ClockSkew = TimeSpan.Zero;
         options.TokenValidationParameters.ValidAudience = jwkOptions.Audience;
         options.TokenValidationParameters.ValidIssuer = configuration.Issuer;
+        options.TokenValidationParameters.RefreshBeforeValidation = !jwkOptions.Encrypted;
     }
 }
